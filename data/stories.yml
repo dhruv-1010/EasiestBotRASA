@@ -1,0 +1,53 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: User inquires about Chainlink
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: inquire_chainlink
+    - action: utter_chainlink_info
+
+- story: User asks about freelancer payments
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: freelancers_payment
+    - action: utter_freelancer_payment_info
+
+- story: User inquires about Chainlink, then asks about freelancer payments
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: inquire_chainlink
+    - action: respond_chainlink_info
+    - intent: freelancers_payment
+    - action: utter_freelancer_payment_info

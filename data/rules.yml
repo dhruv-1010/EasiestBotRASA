@@ -1,0 +1,23 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Respond to Chainlink Inquiry
+  steps:
+    - intent: inquire_chainlink
+    - action: utter_chainlink_info
+
+- rule: Respond to Freelancers Payment Inquiry
+  steps:
+    - intent: freelancers_payment
+    - action: utter_freelancer_payment_info
